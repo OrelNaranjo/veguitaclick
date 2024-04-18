@@ -17,6 +17,9 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('support/api', app, document, { customSiteTitle: 'La VeguitaClick API', customCss: '.swagger-ui .topbar { display: none }' });
 
+  // Implementación de CORS
+  app.enableCors({ origin: 'http://localhost:4200' });
+
   await app.listen(3000);
 }
 bootstrap();
