@@ -19,8 +19,8 @@ describe('ProductosController', () => {
             create: jest.fn().mockResolvedValue(new Producto()),
             findAll: jest.fn().mockResolvedValue([new Producto()]),
             findOne: jest.fn().mockResolvedValue(new Producto()),
-            update: jest.fn().mockResolvedValue(new Producto()),
-            remove: jest.fn().mockResolvedValue({ affected: 1 }),
+            update: jest.fn().mockResolvedValue('El producto ha sido actualizado exitosamente.'),
+            remove: jest.fn().mockResolvedValue(undefined),
           },
         },
       ],
@@ -72,12 +72,12 @@ describe('ProductosController', () => {
     const id = '1';
     const dto: UpdateProductoDto = { nombre: 'Test Updated' };
     const result = await controller.update(id, dto);
-    expect(result).toBeInstanceOf(Producto);
+    expect(result).toBe('El producto ha sido actualizado exitosamente.');
   });
 
   it('should remove a producto', async () => {
     const id = '1';
-    const result = await controller.remove(id);
-    expect(result).toEqual({ affected: 1 });
+    await controller.remove(id);
+    expect(service.remove).toHaveBeenCalledWith(+id);
   });
 });
