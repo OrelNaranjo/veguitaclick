@@ -1,16 +1,16 @@
 import { ApiProperty } from '@nestjs/swagger';
 
-export class CreateProductoDto {
+export class CreateproductDto {
     @ApiProperty({ example: '1234567890' })
     readonly codigo_barra: string;
 
     @ApiProperty({ example: 'SKU123' })
     readonly sku: string;
 
-    @ApiProperty({ example: 'Producto' })
+    @ApiProperty({ example: 'product' })
     readonly nombre: string;
 
-    @ApiProperty({ example: 'Descripción del producto' })
+    @ApiProperty({ example: 'Descripción del product' })
     readonly descripion: string;
 
     @ApiProperty({ example: 100.0 })

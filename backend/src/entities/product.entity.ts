@@ -1,7 +1,7 @@
 import { Column, Entity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from "typeorm";
 
 @Entity()
-export class Producto {
+export class product {
 
     @PrimaryGeneratedColumn()
     id: number;
@@ -57,6 +57,6 @@ export class Producto {
     @UpdateDateColumn()
     modificado: Date;
 
-    // @ManyToOne(() => Categorias, categoria => categoria.productos)
+    // @ManyToOne(() => Categorias, categoria => categoria.products)
     // categoria: Categorias[];
 }
