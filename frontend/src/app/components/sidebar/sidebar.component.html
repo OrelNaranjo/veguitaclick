@@ -6,32 +6,36 @@
 </div>
 <div class="profile-container">
     <div class="profile text-center">
-        <img class="profile-img mb-2" src="../../../assets/images/profiles/profile.png" alt="profile"/>
+        <img class="profile-img mb-2" src="../../../assets/images/profiles/profile.png" alt="profile" />
         <div class="profile-text">John Doe</div>
         <small>Administrator</small>
     </div>
 </div>
 
-
 <div class="sidebar">
     <ul class="sidebar-menu">
+        @for(menuItem of menuItems; track menuItem;){
         <li class="sidebar-item">
-            <a routerLink="/home" class="sidebar-link">
-                <i class="fas fa-home"></i>
-                <span class="sidebar-text">Inicio</span>
+            <a [routerLink]="menuItem.link" routerLinkActive="active-link" class="sidebar-link" (click)="toggleMenuItem(menuItem)">
+                <span class="sidebar-text">{{ menuItem.text }}</span>
+                @if(menuItem.submenu){ @if(expandedMenuItems[menuItem.text]){
+                <i class="bx bx-chevron-up"></i>
+                } @else {
+                <i class="bx bx-chevron-down"></i>
+                } }
             </a>
+            @if(menuItem.submenu && expandedMenuItems[menuItem.text]){
+            <ul class="sublist">
+                @for(submenuItem of menuItem.submenu; track submenuItem;){
+                <li class="sidebar-item">
+                    <a [routerLink]="submenuItem.link" routerLinkActive="active-link" class="sidebar-link">
+                        <span class="sidebar-text">{{ submenuItem.text }}</span>
+                    </a>
+                </li>
+                }
+            </ul>
+            }
         </li>
-        <li class="sidebar-item">
-            <a routerLink="/products" class="sidebar-link">
-                <i class="fas fa-box"></i>
-                <span class="sidebar-text">Productos</span>
-            </a>
-        </li>
-        <li class="sidebar-item">
-            <a routerLink="/categories" class="sidebar-link">
-                <i class="fas fa-tags"></i>
-                <span class="sidebar-text">Categorias</span>
-            </a>
-        </li>
+        }
     </ul>
 </div>
