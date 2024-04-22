@@ -1,0 +1,23 @@
+.form-control-lite {
+  background: transparent;
+  border: 1;
+  border-radius: 5;
+  box-shadow: none;
+  color: #fff;
+
+  &::placeholder {
+    color: hsla(0, 0%, 100%, 0.7);
+  }
+}
+
+.breadcrumb {
+    --bs-breadcrumb-divider-color: hsla(0, 0%, 100%, 0.5);
+}
+
+.breadcrumb-item {
+    color: #fff;
+    a {
+        color: #fff;
+        text-decoration: none;
+    }
+}

@@ -1,0 +1,23 @@
+.footer-menu ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.footer-menu li {
+    display: inline;
+    margin-right: 15px;
+}
+
+.footer-menu a {
+    text-decoration: none;
+    color: hsl(70, 90%, 45%);
+    font-size: .8rem;
+    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.5);
+}
+
+.copyright {
+    color: hsla(0, 0%, 100%, 0.6);
+    font-size: .7rem;
+    font-style: italic;
+}
