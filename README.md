@@ -43,7 +43,7 @@ Para instalar y utilizar la solución tecnológica, sigue estos pasos:
 ```bash
 cd frontend
 npm i
-ng watch
+ng serve
 ng test
 ```
 
