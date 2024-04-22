@@ -1,13 +1,22 @@
-<nav class="navbar navbar-expand navbar-theme">
+<nav class="navbar navbar-expand navbar-theme float-end me-4">
   <form class="d-none d-sm-inline-block">
-    <input class="form-control form-control-lite" type="text" placeholder="Buscar..." />
+    <div class="input-group">
+      <input class="form-control form-control-lite" type="text" placeholder="Buscar..." />
+      <button class="btn btn-secondary" type="button">
+        <i class="bx bx-search"></i>
+      </button>
+    </div>
   </form>
 </nav>
-<h1 class="header-title ms-4 text-white">Productos</h1>
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb ms-4">
-    <li class="breadcrumb-item "><a href="/dashboard-default">Inicio</a></li>
-    <li class="breadcrumb-item "><a href="#">Producción</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Productos</li>
-  </ol>
-</nav>
+<div class="title float-start mt-5 ms-1">
+  <h1 class="header-title ms-4 text-white">{{ stateService.title$ | async }}</h1>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb ms-4">
+      @for(crumb of (stateService.breadcrumb$ | async); track crumb){
+      <li class="breadcrumb-item">
+        <a [routerLink]="[crumb.url]">{{ crumb.name }}</a>
+      </li>
+    }
+    </ol>
+  </nav>
+</div>
