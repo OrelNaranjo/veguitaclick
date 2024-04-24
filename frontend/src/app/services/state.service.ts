@@ -35,6 +35,13 @@ export class StateService {
       breadcrumb = [
         { name: 'Productos', url: '/products' }
       ];
+    } else if (/\/product\/\d+/.test(url)) {
+      const id = url.split('/').pop();
+      title = 'Detalle del producto';
+      breadcrumb = [
+        { name: 'Productos', url: '/products' },
+        { name: `Detalle del producto ${id}`, url: `/product/${id}` }
+      ];
     } else {
       title = 'Pagina no encontrada';
       breadcrumb = [];
