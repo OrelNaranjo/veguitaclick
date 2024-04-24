@@ -5,6 +5,7 @@ import { ProductListComponent } from './pages/product/product-list/product-list.
 import { ProductComponent } from './pages/product/product/product.component';
 import { ProductAddComponent } from './pages/product/product-add/product-add.component';
 import { Page404Component } from './pages/system/page404/page404.component';
+import { ProductEditComponent } from './pages/product/product-edit/product-edit.component';
 
 
 export const routes: Routes = [
@@ -13,7 +14,7 @@ export const routes: Routes = [
     { path: '404', component: Page404Component},
     { path: 'products', component: ProductListComponent },
     { path: 'product/new', component: ProductAddComponent},
-    { path: 'producto/edit/:id', component: ProductAddComponent},
+    { path: 'product/edit/:id', component: ProductEditComponent},
     { path: 'product/:id', component: ProductComponent },
 
     // Ruta por defecto
