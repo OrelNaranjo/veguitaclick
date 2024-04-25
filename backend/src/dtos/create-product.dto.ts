@@ -1,48 +1,54 @@
 import { ApiProperty } from '@nestjs/swagger';
 
-export class CreateproductDto {
+export class CreateProductDto {
     @ApiProperty({ example: '1234567890' })
-    readonly codigo_barra: string;
+    readonly barcode: string;
 
     @ApiProperty({ example: 'SKU123' })
     readonly sku: string;
 
     @ApiProperty({ example: 'product' })
-    readonly nombre: string;
+    readonly name: string;
 
-    @ApiProperty({ example: 'Descripción del product' })
-    readonly descripion: string;
+    @ApiProperty({ example: 'Descripción del producto' })
+    readonly description: string;
 
     @ApiProperty({ example: 100.0 })
-    readonly precio: number;
+    readonly price: number;
+
+    @ApiProperty({ example: 90.0 })
+    readonly cost: number;
 
     @ApiProperty({ example: false })
-    readonly descontinuado: boolean;
+    readonly discontinued: boolean;
 
     @ApiProperty({ example: true })
-    readonly se_vende: boolean;
+    readonly is_selleable: boolean;
 
     @ApiProperty({ example: true })
-    readonly se_compra: boolean;
+    readonly is_purchase: boolean;
 
     @ApiProperty({ example: 10 })
-    readonly stock_minimo: number;
+    readonly min_stock: number;
 
     @ApiProperty({ example: 100 })
-    readonly stock_maximo: number;
-
-    @ApiProperty({ example: 'Caja' })
-    readonly embalaje: string;
+    readonly max_stock: number;
 
     @ApiProperty({ example: 1.0 })
-    readonly peso: number;
+    readonly weight: number;
 
     @ApiProperty({ example: 10.0 })
-    readonly ancho: number;
+    readonly width: number;
 
     @ApiProperty({ example: 10.0 })
-    readonly alto: number;
+    readonly height: number;
 
     @ApiProperty({ example: 10.0 })
-    readonly largo: number;
+    readonly length: number;
+
+    @ApiProperty({ example: 1 })
+    readonly categoryId: number;
+
+    @ApiProperty({ example: 1, required: false })
+    readonly imageId: number;
 }

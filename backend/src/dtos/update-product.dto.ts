@@ -1,48 +1,54 @@
 import { ApiPropertyOptional } from '@nestjs/swagger';
 
-export class UpdateproductDto {
+export class UpdateProductDto {
     @ApiPropertyOptional({ example: '1234567890' })
-    readonly codigo_barra?: string;
+    readonly barcode?: string;
 
     @ApiPropertyOptional({ example: 'SKU123' })
     readonly sku?: string;
 
     @ApiPropertyOptional({ example: 'product' })
-    readonly nombre?: string;
+    readonly name?: string;
 
-    @ApiPropertyOptional({ example: 'Descripción del product' })
-    readonly descripion?: string;
+    @ApiPropertyOptional({ example: 'Product description' })
+    readonly description?: string;
 
     @ApiPropertyOptional({ example: 100.0 })
-    readonly precio?: number;
+    readonly price?: number;
+
+    @ApiPropertyOptional({ example: 90.0 })
+    readonly cost?: number;
 
     @ApiPropertyOptional({ example: false })
-    readonly descontinuado?: boolean;
+    readonly discontinued?: boolean;
 
     @ApiPropertyOptional({ example: true })
-    readonly se_vende?: boolean;
+    readonly is_selleable?: boolean;
 
     @ApiPropertyOptional({ example: true })
-    readonly se_compra?: boolean;
+    readonly is_purchase?: boolean;
 
     @ApiPropertyOptional({ example: 10 })
-    readonly stock_minimo?: number;
+    readonly min_stock?: number;
 
     @ApiPropertyOptional({ example: 100 })
-    readonly stock_maximo?: number;
-
-    @ApiPropertyOptional({ example: 'Caja' })
-    readonly embalaje?: string;
+    readonly max_stock?: number;
 
     @ApiPropertyOptional({ example: 1.0 })
-    readonly peso?: number;
+    readonly weight?: number;
 
     @ApiPropertyOptional({ example: 10.0 })
-    readonly ancho?: number;
+    readonly width?: number;
 
     @ApiPropertyOptional({ example: 10.0 })
-    readonly alto?: number;
+    readonly height?: number;
 
     @ApiPropertyOptional({ example: 10.0 })
-    readonly largo?: number;
+    readonly length?: number;
+
+    @ApiPropertyOptional({ example: 1, required: false })
+    readonly categoryId?: number;
+
+    @ApiPropertyOptional({ example: 1, required: false })
+    readonly imageId?: number;
 }
