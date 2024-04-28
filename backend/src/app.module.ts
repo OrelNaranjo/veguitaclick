@@ -6,6 +6,7 @@ import { ProductModule } from './modules/product/product.module';
 import { CategoryModule } from './modules/category/category.module';
 import { ImageModule } from './modules/image/image.module';
 import { PackageTypeModule } from './modules/package-type/package-type.module';
+import { SupplierModule } from './modules/supplier/supplier.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { PackageTypeModule } from './modules/package-type/package-type.module';
     CategoryModule,
     ImageModule,
     PackageTypeModule,
+    SupplierModule,
   ],
   controllers: [],
   providers: [],

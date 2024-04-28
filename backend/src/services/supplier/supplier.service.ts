@@ -1,0 +1,37 @@
+import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { CreateSupplierDto } from 'src/dtos/create-Supplier.dto';
+import { UpdateSupplierDto } from 'src/dtos/update-Supplier.dto';
+import { Suppliers } from 'src/entities/suppliers.entity';
+import { Repository } from 'typeorm';
+
+@Injectable()
+export class SupplierService {
+    constructor(
+        @InjectRepository(Suppliers)
+        private SupplierRepository: Repository<Suppliers>,
+    ) { }
+
+    async create(createSupplierDto: CreateSupplierDto): Promise<Suppliers> {
+        const Supplier = this.SupplierRepository.create(createSupplierDto);
+        return this.SupplierRepository.save(Supplier);
+    }
+
+    async findAll(): Promise<Suppliers[]> {
+        return this.SupplierRepository.find();
+    }
+
+    async findOne(id: number): Promise<Suppliers> {
+        return this.SupplierRepository.findOneBy({ id: id });
+    }
+
+    async update(id: number, updateSupplierDto: UpdateSupplierDto): Promise<Suppliers> {
+        const Supplier = await this.SupplierRepository.findOneBy({ id: id });
+        return this.SupplierRepository.save({ ...Supplier, ...updateSupplierDto });
+    }
+
+    async remove(id: number): Promise<void> {
+        const Supplier = await this.SupplierRepository.findOneBy({ id: id });
+        await this.SupplierRepository.remove(Supplier);
+    }
+}
