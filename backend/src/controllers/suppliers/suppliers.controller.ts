@@ -1,9 +1,9 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
 import { ApiBody, ApiOkResponse, ApiParam, ApiResponse, ApiTags } from '@nestjs/swagger';
-import { CreateSupplierDto } from 'src/dtos/create-Supplier.dto';
-import { UpdateSupplierDto } from 'src/dtos/update-Supplier.dto';
-import { Suppliers } from 'src/entities/Suppliers.entity';
-import { SupplierService } from 'src/services/supplier/supplier.service';
+import { CreateSupplierDto } from '../../dtos/create-Supplier.dto';
+import { UpdateSupplierDto } from '../../dtos/update-Supplier.dto';
+import { Suppliers } from '../../entities/Suppliers.entity';
+import { SupplierService } from '../../services/supplier/supplier.service';
 
 
 @Controller('suppliers')
