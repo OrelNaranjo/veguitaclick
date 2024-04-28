@@ -1,1 +1,226 @@
-<p>product works!</p>
+@if(isNew){
+    <h5>Nuevo producto</h5>
+}@else {
+    <h5>Editar producto</h5>
+}
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+        <div class="input-group mb-3 col">
+            <span class="input-group-text" id="basic-addon2">Código de barras:</span>
+            <input
+                class="form-control"
+                id="barcode"
+                type="text"
+                formControlName="barcode"
+                placeholder="Código de barras"
+                aria-label="Código de barras"
+                aria-describedby="basic-addon2"
+            />
+        </div>
+        <div class="input-group mb-3 col">
+            <span class="input-group-text" id="basic-addon3">SKU:</span>
+            <input
+                class="form-control"
+                id="sku"
+                type="text"
+                formControlName="sku"
+                placeholder="SKU"
+                aria-label="SKU"
+                aria-describedby="basic-addon3"
+            />
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-group mb-3 col">
+            <span class="input-group-text" id="basic-addon4">Nombre:</span>
+            <input
+                class="form-control"
+                id="name"
+                type="text"
+                formControlName="name"
+                placeholder="Nombre"
+                aria-label="Nombre"
+                aria-describedby="basic-addon4"
+            />
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-group mb-3 col">
+            <span class="input-group-text align-top" id="basic-addon5">Descripción:</span>
+            <textarea
+                class="form-control"
+                id="description"
+                type="text"
+                formControlName="description"
+                placeholder="Descripción"
+                aria-label="Descripción"
+                aria-describedby="basic-addon5"
+                rows="3"
+            ></textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-group mb-3 col">
+            <span class="input-group-text" id="basic-addon6">Precio:</span>
+            <span class="input-group-text">$</span>
+            <input
+                class="form-control"
+                id="price"
+                type="number"
+                formControlName="price"
+                placeholder="Precio"
+                aria-label="Precio"
+                aria-describedby="basic-addon6"
+            />
+        </div>
+        <div class="input-group mb-3 col">
+            <span class="input-group-text" id="basic-addon7">Costo:</span>
+            <span class="input-group-text">$</span>
+            <input
+                class="form-control"
+                id="cost"
+                type="number"
+                formControlName="cost"
+                placeholder="Costo"
+                aria-label="Costo"
+                aria-describedby="basic-addon7"
+            />
+        </div>
+    </div>
+    <div class="row">
+        <div class="mb-3 col">
+            <span class="label-text pe-2" id="basic-addon8">Descontinuado:</span>
+            <input
+                class="form-check-input"
+                id="discontinued"
+                type="checkbox"
+                formControlName="discontinued"
+                placeholder="Descontinuado"
+                aria-label="Descontinuado"
+                aria-describedby="basic-addon8"
+            />
+        </div>
+        <div class="mb-3 col">
+            <label class="label-text pe-2" id="basic-addon9">Se vende:</label>
+            <input
+                class="form-check-input"
+                id="is_selleable"
+                type="checkbox"
+                formControlName="is_selleable"
+                placeholder="Es para venta"
+                aria-label="Es para venta"
+                aria-describedby="basic-addon9"
+            />
+        </div>
+        <div class="mb-3 col">
+            <span class="label-text pe-2" id="basic-addon10">Se compra:</span>
+            <input
+                class="form-check-input"
+                id="is_purchase"
+                type="checkbox"
+                formControlName="is_purchase"
+                placeholder="Es para compra"
+                aria-label="Es para compra"
+                aria-describedby="basic-addon10"
+            />
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-group mb-3 col">
+            <span class="input-group-text" id="basic-addon11">Stock mínimo:</span>
+            <input
+                class="form-control"
+                id="min_stock"
+                type="number"
+                formControlName="min_stock"
+                placeholder="Stock mínimo"
+                aria-label="Stock mínimo"
+                aria-describedby="basic-addon11"
+            />
+        </div>
+        <div class="input-group mb-3 col">
+            <span class="input-group-text" id="basic-addon12">Stock máximo:</span>
+            <input
+                class="form-control"
+                id="max_stock"
+                type="number"
+                formControlName="max_stock"
+                placeholder="Stock máximo"
+                aria-label="Stock máximo"
+                aria-describedby="basic-addon12"
+            />
+        </div>
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon13">Peso:</span>
+        <input
+            class="form-control"
+            id="weight"
+            type="number"
+            formControlName="weight"
+            placeholder="Peso"
+            aria-label="Peso"
+            aria-describedby="basic-addon13"
+        />
+    </div>
+    <div class="row">
+        <div class="input-group mb-3 col">
+            <span class="input-group-text" id="basic-addon14">Ancho:</span>
+            <input
+                class="form-control"
+                id="width"
+                type="number"
+                formControlName="width"
+                placeholder="Ancho"
+                aria-label="Ancho"
+                aria-describedby="basic-addon14"
+            />
+        </div>
+        <div class="input-group mb-3 col">
+            <span class="input-group-text" id="basic-addon15">Altura:</span>
+            <input
+                class="form-control"
+                id="height"
+                type="number"
+                formControlName="height"
+                placeholder="Altura"
+                aria-label="Altura"
+                aria-describedby="basic-addon15"
+            />
+        </div>
+        <div class="input-group mb-3 col">
+            <span class="input-group-text" id="basic-addon16">Longitud:</span>
+            <input
+                class="form-control"
+                id="length"
+                type="number"
+                formControlName="length"
+                placeholder="Longitud"
+                aria-label="Longitud"
+                aria-describedby="basic-addon16"
+            />
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-group mb-3 col">
+            <label class="input-group-text" for="inputGroupSelect01">Options</label>
+            <select class="form-select" id="inputGroupSelect01">
+                <option selected>Choose...</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-group mb-3 col">
+            <input type="file" class="form-control" id="inputGroupFile02" multiple/>
+            <button class="btn btn-primary" type="button">Subir</button>
+        </div>
+    </div>
+
+    <div class="text-center">
+        <button type="button" class="btn btn-secondary me-3">Cancelar</button>
+        <button type="submit" class="btn btn-primary me-3">Guardar</button>
+    </div>
+</form>
