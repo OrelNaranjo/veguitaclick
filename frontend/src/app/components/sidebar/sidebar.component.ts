@@ -37,6 +37,15 @@ export class SidebarComponent {
         },
       ],
     },
+    {
+      text: 'Proveedores',
+      submenu: [
+        {
+          text: 'Todos los proveedores',
+          link: '/suppliers'
+        }
+      ],
+    }
   ];
 
   ngOnInit() {

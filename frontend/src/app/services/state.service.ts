@@ -42,6 +42,12 @@ export class StateService {
         { name: 'Productos', url: '/products' },
         { name: `Detalle del producto ${id}`, url: `/product/${id}` }
       ];
+    } else if (url.includes('/suppliers')) {
+      title = 'Todos los proveedores';
+      breadcrumb = [
+        { name: 'Proveedores', url: '/suppliers' }
+      ];
+    
     } else {
       title = 'Pagina no encontrada';
       breadcrumb = [];

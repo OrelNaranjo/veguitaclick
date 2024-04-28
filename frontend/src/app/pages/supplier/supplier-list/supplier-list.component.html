@@ -1,0 +1,33 @@
+<h5>Lista de proveedores</h5>
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr class="table-info">
+            <th>RUT</th>
+            <th>Nombre</th>
+            <th>Direccion</th>
+            <th>Telefono</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for(supplier of suppliers; track supplier.id){
+        <tr>
+            <td>{{ supplier.rut }}</td>
+            <td>{{ supplier.name }}</td>
+            <td>{{ supplier.address }}</td>
+            <td>{{ supplier.phone }}</td>
+            <td class="text-end">
+                <a class="btn btn-primary btn-sm me-2" [routerLink]="['/supplier', supplier.id, 'view']">
+                    <i class="bx bx-show"></i>
+                </a>
+                <a class="btn btn-warning btn-sm me-2" [routerLink]="['/supplier', supplier.id, 'edit']">
+                    <i class="bx bx-edit"></i>
+                </a>
+                <button class="btn btn-danger btn-sm me-2" (click)="deleteSupplier(supplier.id)">
+                    <i class="bx bx-trash"></i>
+                </button>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

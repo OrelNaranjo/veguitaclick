@@ -5,6 +5,7 @@ import { ProductListComponent } from './pages/product/product-list/product-list.
 import { ProductDetailComponent } from './pages/product/product-detail/product-detail.component';
 import { Page404Component } from './pages/system/page404/page404.component';
 import { ProductComponent } from './pages/product/product/product.component';
+import { SupplierListComponent } from './pages/supplier/supplier-list/supplier-list.component';
 
 
 export const routes: Routes = [
@@ -15,6 +16,9 @@ export const routes: Routes = [
     { path: 'product/new', component: ProductComponent },
     { path: 'product/:id/edit', component: ProductComponent },
     { path: 'product/:id/view', component: ProductDetailComponent},
+
+    //Rutas proveedores
+    { path: 'suppliers', component: SupplierListComponent },
 
     // Ruta por defecto
     { path: '', redirectTo: 'home', pathMatch: 'full' },
