@@ -8,7 +8,7 @@ export class CreateSupplierDto {
     readonly rut: string;
     
 
-    @ApiProperty({example: 'provedor'})
+    @ApiProperty({example: 'proveedor'})
     @IsNotEmpty()
     @IsString()
     readonly name: string;
@@ -18,13 +18,13 @@ export class CreateSupplierDto {
     @IsString()
     readonly address: string;
 
-    @ApiProperty({example: 'provedor@provedor.cl'})
+    @ApiProperty({example: 'proveedor@proveedor.cl'})
     @IsNotEmpty()
     @IsEmail()
     readonly email: string;
 
     @ApiProperty({example: '123456789'})
     @IsNotEmpty()
-    @IsPhoneNumber('any')
+    @IsPhoneNumber('CL')
     readonly phone: string;
 }
