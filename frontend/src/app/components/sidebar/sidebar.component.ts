@@ -41,6 +41,10 @@ export class SidebarComponent {
       text: 'Proveedores',
       submenu: [
         {
+          text: 'Nuevo Proveedor',
+          link: '/suppliers/new',
+        },
+        {
           text: 'Todos los proveedores',
           link: '/suppliers'
         }

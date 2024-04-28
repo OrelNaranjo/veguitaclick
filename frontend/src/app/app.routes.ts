@@ -6,6 +6,8 @@ import { ProductDetailComponent } from './pages/product/product-detail/product-d
 import { Page404Component } from './pages/system/page404/page404.component';
 import { ProductComponent } from './pages/product/product/product.component';
 import { SupplierListComponent } from './pages/supplier/supplier-list/supplier-list.component';
+import { SupplierComponent } from './pages/supplier/supplier/supplier.component';
+import { SupplierDetailComponent } from './pages/supplier/supplier-detail/supplier-detail.component';
 
 
 export const routes: Routes = [
@@ -19,6 +21,10 @@ export const routes: Routes = [
 
     //Rutas proveedores
     { path: 'suppliers', component: SupplierListComponent },
+    { path: 'suppliers/new', component: SupplierComponent },
+    { path: 'suppliers/:id/edit', component: SupplierComponent },
+    { path: 'suppliers/:id/view', component: SupplierDetailComponent},
+
 
     // Ruta por defecto
     { path: '', redirectTo: 'home', pathMatch: 'full' },
