@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { ProductService } from '../../../services/product.service';
+import { Product } from '../../../interfaces/product';
 
 @Component({
   selector: 'app-product-list',
@@ -11,88 +13,15 @@ import { RouterLink } from '@angular/router';
 })
 export class ProductListComponent {
 
-  products = [
-    {
-      id: 1,
-      sku: 'PRO1',
-      name: 'Product 1',
-      description: 'Description 1',
-      price: 1000,
-      discontinued: true
-    },
-    {
-      id: 2,
-      sku: 'PRO2',
-      name: 'Product 2',
-      description: 'Description 2',
-      price: 2000,
-      discontinued: false
-    },
-    {
-      id: 3,
-      sku: 'PRO3',
-      name: 'Product 3',
-      description: 'Description 3',
-      price: 3000,
-      discontinued: true
-    },
-    {
-      id: 4,
-      sku: 'PRO4',
-      name: 'Product 4',
-      description: 'Description 4',
-      price: 4000,
-      discontinued: false
-    },
-    {
-      id: 5,
-      sku: 'PRO5',
-      name: 'Product 5',
-      description: 'Description 5',
-      price: 5000,
-      discontinued: false
-    },
-    {
-      id: 6,
-      sku: 'PRO6',
-      name: 'Product 6',
-      description: 'Description 6',
-      price: 6000,
-      discontinued: false
-    },
-    {
-      id: 7,
-      sku: 'PRO7',
-      name: 'Product 7',
-      description: 'Description 7',
-      price: 7000,
-      discontinued: false
-    },
-    {
-      id: 8,
-      sku: 'PRO8',
-      name: 'Product 8',
-      description: 'Description 8',
-      price: 8000,
-      discontinued: true
-    },
-    {
-      id: 9,
-      sku: 'PRO9',
-      name: 'Product 9',
-      description: 'Description 9',
-      price: 9000,
-      discontinued: false
-    },
-    {
-      id: 10,
-      sku: 'PRO10',
-      name: 'Product 10',
-      description: 'Description 10',
-      price: 10000,
-      discontinued: false
-    }
-  ];
+  products: Product[] = [];
+
+  constructor(private productService: ProductService) { }
+
+  ngOnInit() {
+    this.productService.getAllProducts().subscribe((products: Product[]) => {
+      this.products = products;
+    });
+  }
 
   deleteProduct(id: number) {
   }
