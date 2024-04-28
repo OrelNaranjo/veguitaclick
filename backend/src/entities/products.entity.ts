@@ -2,6 +2,7 @@ import { Column, Entity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateCol
 import { Categories } from "./categories.entity";
 import { Images } from "./images.entity";
 import { PackageTypes } from "./package-types.entity";
+import { Suppliers } from "./suppliers.entity";
 
 @Entity()
 export class Products {
@@ -68,4 +69,7 @@ export class Products {
 
     @ManyToOne(() => PackageTypes, packageType => packageType.products)
     packageType: PackageTypes;
+
+    @ManyToOne(()=> Suppliers, supplier => supplier.products)
+    supplier: Suppliers;
 }
