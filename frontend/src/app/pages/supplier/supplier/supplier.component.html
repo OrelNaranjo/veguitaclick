@@ -1,0 +1,47 @@
+@if(isNew){
+<h5 class="mb-3">Nuevo proveedor</h5>
+}@else {
+<h5>Editar proveedor</h5>
+}
+<form [formGroup]="supplierForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+        <div class="col-6">
+            <div class="input-group mb-3 ">
+                <span class="input-group-text" id="basic-addon2">RUT:</span>
+                <input class="form-control" id="rut" type="text" formControlName="rut" placeholder="RUT"
+                    aria-label="RUT" aria-describedby="basic-addon2" />
+            </div>
+            <div class="input-group mb-3 ">
+                <span class="input-group-text" id="basic-addon4">Nombre:</span>
+                <input class="form-control" id="name" type="text" formControlName="name" placeholder="Nombre"
+                    aria-label="Nombre" aria-describedby="basic-addon4" />
+            </div>
+            <div class="input-group mb-3 ">
+                <span class="input-group-text align-top" id="basic-addon5">Direccion:</span>
+                <input class="form-control" id="address" type="text" formControlName="address" placeholder="Direccion"
+                    aria-label="Direccion" aria-describedby="basic-addon5" />
+            </div>
+            <div class="input-group mb-3 ">
+                <span class="input-group-text" id="basic-addon6">Correo Electronico:</span>
+                <input class="form-control" id="email" type="text" formControlName="email"
+                    placeholder="Correo Electronico" aria-label="Correo Electronico" aria-describedby="basic-addon6" />
+            </div>
+            <div class="input-group mb-3 ">
+                <span class="input-group-text" id="basic-addon7">Telefono:</span>
+                <input class="form-control" id="phone" type="number" formControlName="phone" placeholder="Telefono"
+                    aria-label="Telefono" aria-describedby="basic-addon7" />
+            </div>
+            <div class="text-center">
+                <button type="button" class="btn btn-secondary me-3">Cancelar</button>
+                <button type="submit" class="btn btn-primary me-3">Guardar</button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+
+        </div>
+
+    </div>
+    
+</form>

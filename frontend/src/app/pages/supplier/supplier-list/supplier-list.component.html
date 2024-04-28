@@ -17,10 +17,10 @@
             <td>{{ supplier.address }}</td>
             <td>{{ supplier.phone }}</td>
             <td class="text-end">
-                <a class="btn btn-primary btn-sm me-2" [routerLink]="['/supplier', supplier.id, 'view']">
+                <a class="btn btn-primary btn-sm me-2" [routerLink]="['/suppliers', supplier.id, 'view']">
                     <i class="bx bx-show"></i>
                 </a>
-                <a class="btn btn-warning btn-sm me-2" [routerLink]="['/supplier', supplier.id, 'edit']">
+                <a class="btn btn-warning btn-sm me-2" [routerLink]="['/suppliers', supplier.id, 'edit']">
                     <i class="bx bx-edit"></i>
                 </a>
                 <button class="btn btn-danger btn-sm me-2" (click)="deleteSupplier(supplier.id)">
