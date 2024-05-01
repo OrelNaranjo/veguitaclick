@@ -1,7 +1,7 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
 import { ApiTags, ApiResponse, ApiBody, ApiOkResponse, ApiParam } from '@nestjs/swagger';
-import { CreateImageDto } from '../../dtos/create-image.dto';
-import { UpdateImageDto } from '../../dtos/update-image.dto';
+import { CreateImageDto } from '../../dtos/image/create-image.dto';
+import { UpdateImageDto } from '../../dtos/image/update-image.dto';
 import { Images } from '../../entities/images.entity';
 import { ImageService } from '../../services/image/image.service';
 

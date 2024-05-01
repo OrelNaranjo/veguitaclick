@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { CreateClientDto } from '../../dtos/create-Client.dto';
-import { UpdateClientDto } from '../../dtos/update-Client.dto';
+import { CreateClientDto } from '../../dtos/client/create-client.dto';
+import { UpdateClientDto } from '../../dtos/client/update-client.dto';
 import { Clients } from '../../entities/clients.entity';
 import { Repository } from 'typeorm';
 
@@ -35,4 +35,3 @@ export class ClientService {
         await this.ClientRepository.remove(Client);
     }
 }
-

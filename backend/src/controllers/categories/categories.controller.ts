@@ -1,7 +1,7 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
 import { ApiBody, ApiOkResponse, ApiParam, ApiResponse, ApiTags } from '@nestjs/swagger';
-import { CreateCategoryDto } from '../../dtos/create-category.dto';
-import { UpdateCategoryDto } from '../../dtos/update-category.dto';
+import { CreateCategoryDto } from '../../dtos/category/create-category.dto';
+import { UpdateCategoryDto } from '../../dtos/category/update-category.dto';
 import { Categories } from '../../entities/categories.entity';
 import { CategoryService } from '../../services/category/category.service';
 

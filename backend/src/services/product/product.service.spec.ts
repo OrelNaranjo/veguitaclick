@@ -2,8 +2,8 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { ProductService } from './product.service';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { Products } from '../../entities/products.entity';
-import { CreateProductDto } from '../../dtos/create-product.dto';
-import { UpdateProductDto } from '../../dtos/update-product.dto';
+import { CreateProductDto } from '../../dtos/product/create-product.dto';
+import { UpdateProductDto } from '../../dtos/product/update-product.dto';
 
 describe('productService', () => {
   let service: ProductService;

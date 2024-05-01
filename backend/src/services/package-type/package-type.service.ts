@@ -2,8 +2,8 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { PackageTypes } from '../../entities/package-types.entity';
 import { Repository } from 'typeorm';
-import { CreatePackageTypeDto } from '../../dtos/create-package-type.dto';
-import { UpdatePackageTypeDto } from '../../dtos/update-package-type.dto';
+import { CreatePackageTypeDto } from '../../dtos/package-type/create-package-type.dto';
+import { UpdatePackageTypeDto } from '../../dtos/package-type/update-package-type.dto';
 
 @Injectable()
 export class PackageTypeService {

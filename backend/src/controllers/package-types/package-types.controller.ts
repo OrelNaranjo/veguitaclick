@@ -1,7 +1,7 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
 import { ApiBody, ApiOkResponse, ApiParam, ApiResponse, ApiTags } from '@nestjs/swagger';
-import { CreatePackageTypeDto } from '../../dtos/create-package-type.dto';
-import { UpdatePackageTypeDto } from '../../dtos/update-package-type.dto';
+import { CreatePackageTypeDto } from '../../dtos/package-type/create-package-type.dto';
+import { UpdatePackageTypeDto } from '../../dtos/package-type/update-package-type.dto';
 import { PackageTypes } from '../../entities/package-types.entity';
 import { PackageTypeService } from '../../services/package-type/package-type.service';
 

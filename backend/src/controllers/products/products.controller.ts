@@ -1,6 +1,6 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
-import { CreateProductDto } from '../../dtos/create-product.dto';
-import { UpdateProductDto } from '../../dtos/update-product.dto';
+import { CreateProductDto } from '../../dtos/product/create-product.dto';
+import { UpdateProductDto } from '../../dtos/product/update-product.dto';
 import { ProductService } from '../../services/product/product.service';
 import { ApiTags, ApiResponse, ApiOkResponse, ApiBody, ApiParam } from '@nestjs/swagger';
 import { Products } from 'src/entities/products.entity';

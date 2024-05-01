@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { CreateImageDto } from '../../dtos/create-image.dto';
-import { UpdateImageDto } from '../../dtos/update-image.dto';
+import { CreateImageDto } from '../../dtos/image/create-image.dto';
+import { UpdateImageDto } from '../../dtos/image/update-image.dto';
 import { Images } from '../../entities/images.entity';
 import { Repository } from 'typeorm';
 
