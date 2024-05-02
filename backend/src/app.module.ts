@@ -11,6 +11,8 @@ import { ClientModule } from './modules/client.module';
 import { UserModule } from './modules/user.module';
 import { PrivilegeModule } from './modules/privilege.module';
 import { RoleModule } from './modules/role.module';
+import { AuthModule } from './modules/auth.module';
+import { SeederModule } from './modules/seeder.module';
 
 @Module({
   imports: [
@@ -26,6 +28,8 @@ import { RoleModule } from './modules/role.module';
     UserModule,
     PrivilegeModule,
     RoleModule,
+    AuthModule,
+    SeederModule,
   ],
   controllers: [],
   providers: [],
