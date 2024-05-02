@@ -12,7 +12,6 @@ export class Privileges {
     @Column()
     description: string;
 
-    @ManyToMany(() => Roles, role => role.users)
-    @JoinTable()
+    @ManyToMany(() => Roles, role => role.privileges)
     roles: Roles[];
 }
