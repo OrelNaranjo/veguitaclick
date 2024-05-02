@@ -6,16 +6,16 @@ export class Users {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column()
+    @Column({ length: 25 })
     username: string;
 
-    @Column()
+    @Column({ length: 100 })
     email: string;
 
     @Column()
     password: string;
 
-    @ManyToMany(() => Roles)
+    @ManyToMany(() => Roles, role => role.users)
     @JoinTable()
     roles: Roles[];
 }

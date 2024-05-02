@@ -13,11 +13,10 @@ export class Roles {
     @Column()
     description: string;
 
-    @ManyToMany(() => Users)
-    @JoinTable()
+    @ManyToMany(() => Users, user => user.roles)
     users: Users[];
 
-    @ManyToMany(() => Privileges)
+    @ManyToMany(() => Privileges, privilege => privilege.roles)
     @JoinTable()
     privileges: Privileges[];
 }
