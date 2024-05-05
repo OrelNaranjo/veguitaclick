@@ -1,6 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import { Logger } from '@nestjs/common';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -20,6 +21,8 @@ async function bootstrap() {
   // Implementación de CORS
   app.enableCors({ origin: 'http://localhost:4200' });
 
-  await app.listen(3000);
+  await app.listen(3000, () => {
+    Logger.log(`Servidor corriendo en http://localhost:3000/api/v1`);
+  });
 }
 bootstrap();

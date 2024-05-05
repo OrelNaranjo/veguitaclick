@@ -13,6 +13,7 @@ import { PrivilegeModule } from './modules/privilege.module';
 import { RoleModule } from './modules/role.module';
 import { AuthModule } from './modules/auth.module';
 import { SeederModule } from './modules/seeder.module';
+import { AppController } from './app.controller';
 
 @Module({
   imports: [
@@ -31,7 +32,7 @@ import { SeederModule } from './modules/seeder.module';
     AuthModule,
     SeederModule,
   ],
-  controllers: [],
+  controllers: [AppController],
   providers: [],
 })
 export class AppModule {}
