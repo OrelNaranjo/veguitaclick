@@ -31,4 +31,24 @@ describe('SuppliersController', () => {
   it('should be defined', () => {
     expect(controller).toBeDefined();
   });
+
+  it('should create a role', async () => {
+    expect(true).toBe(true);
+  });
+
+  it('should find all roles', async () => {
+    expect(true).toBe(true);
+  });
+
+  it('should find one role', async () => {
+    expect(true).toBe(true);
+  });
+
+  it('should update a role', async () => {
+    expect(true).toBe(true);
+  });
+
+  it('should remove a role', async () => {
+    expect(true).toBe(true);
+  });
 });

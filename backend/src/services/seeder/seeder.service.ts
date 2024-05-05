@@ -1,10 +1,10 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Privileges } from 'src/entities/privileges.entity';
-import { Roles } from 'src/entities/roles.entity';
-import { Users } from 'src/entities/users.entity';
+import { Roles } from '../../entities/roles.entity';
+import { Users } from '../../entities/users.entity';
 import { Repository } from 'typeorm';
 import * as bcrypt from 'bcrypt';
+import { Privileges } from '../../entities/privileges.entity';
 
 @Injectable()
 export class SeederService {

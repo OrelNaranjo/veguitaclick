@@ -2,8 +2,8 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, UseInterceptors, Use
 import { UserService } from '../../services/user/user.service';
 import { CreateUserDto } from '../../dtos/user/create-user.dto';
 import { UpdateUserDto } from '../../dtos/user/update-user.dto';
-import { AuthGuard } from 'src/guards/auth/auth.guard';
-import { Privileges } from 'src/decorators/app.decorator';
+import { AuthGuard } from '../../guards/auth/auth.guard';
+import { Privileges } from '../../decorators/app.decorator';
 
 @UseGuards(AuthGuard)
 @Controller('users')
