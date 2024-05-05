@@ -14,6 +14,7 @@ import { RoleModule } from './modules/role.module';
 import { AuthModule } from './modules/auth.module';
 import { SeederModule } from './modules/seeder.module';
 import { AppController } from './app.controller';
+import { AuthGuard } from './guards/auth/auth.guard';
 
 @Module({
   imports: [
@@ -33,6 +34,6 @@ import { AppController } from './app.controller';
     SeederModule,
   ],
   controllers: [AppController],
-  providers: [],
+  providers: [AuthGuard],
 })
 export class AppModule {}
