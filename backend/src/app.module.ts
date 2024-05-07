@@ -15,6 +15,7 @@ import { AuthModule } from './modules/auth.module';
 import { SeederModule } from './modules/seeder.module';
 import { AppController } from './app.controller';
 import { AuthGuard } from './guards/auth/auth.guard';
+import { StoreModule } from './modules/store.module';
 
 @Module({
   imports: [
@@ -32,6 +33,7 @@ import { AuthGuard } from './guards/auth/auth.guard';
     RoleModule,
     AuthModule,
     SeederModule,
+    StoreModule,
   ],
   controllers: [AppController],
   providers: [AuthGuard],
