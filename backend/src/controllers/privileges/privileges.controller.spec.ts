@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { PrivilegesController } from './privileges.controller';
 import { PrivilegeService } from '../../services/privilege/privilege.service';
 import { getRepositoryToken } from '@nestjs/typeorm';
-import { Privileges } from '../../decorators/app.decorator';
+import { Privileges } from '../../entities/privileges.entity';
 
 describe('PrivilegesController', () => {
   let controller: PrivilegesController;

@@ -22,6 +22,7 @@ export class SeederService {
 
     // Poblar tabla de privilegios y el usuario Administrador
     const seederPrivileges: Partial<Privileges>[] = [
+      { name: 'login', description: 'Iniciar sesión' },
       { name: 'create_user', description: 'Crear usuario' },
       { name: 'read_users', description: 'Leer usuarios' },
       { name: 'update_user', description: 'Actualizar usuario' },
@@ -39,13 +40,17 @@ export class SeederService {
 
 
     const adminPrivileges = ['create_user', 'read_user', 'update_user', 'delete_user'];
-    const filteredPrivileges = savedPrivileges.filter(privilege => adminPrivileges.includes(privilege.name));
+    const userPrivileges = ['login'];
+    const filteredAdminPrivileges = savedPrivileges.filter(privilege => adminPrivileges.includes(privilege.name));
+    const filteredUserPrivileges = savedPrivileges.filter(privilege => userPrivileges.includes(privilege.name));
     const seederRoles: Partial<Roles>[] = [
-      { name: 'admin', description: 'Administrador', privileges: filteredPrivileges },
+      { name: 'admin', description: 'Administrador', privileges: filteredAdminPrivileges },
+      { name: 'user', description: 'Usuario', privileges: filteredUserPrivileges }
     ];
     const savedRoles = await this.rolesRepository.save(seederRoles);
     const seederUsers: Partial<Users>[] = [
       { username: 'admin', email: 'admin@laveguitaclick.cl', password: await bcrypt.hash('admin', 10), roles: savedRoles },
+      { username: 'user', email: 'user@laveguitaclick.cl', password: await bcrypt.hash('user', 10), roles: savedRoles }
     ];
 
     try {

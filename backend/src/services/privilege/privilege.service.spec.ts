@@ -1,7 +1,8 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { PrivilegeService } from './privilege.service';
 import { getRepositoryToken } from '@nestjs/typeorm';
-import { Privileges } from '../../decorators/app.decorator';
+import { Privileges } from '../../entities/privileges.entity';
+
 
 describe('PrivilegesService', () => {
   let service: PrivilegeService;

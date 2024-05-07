@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { RoleService } from './role.service';
 import { Roles } from '../../entities/roles.entity';
 import { getRepositoryToken } from '@nestjs/typeorm';
-import { Privileges } from '../../decorators/app.decorator';
+import { Privileges } from '../../entities/privileges.entity';
 
 describe('RoleService', () => {
   let service: RoleService;
