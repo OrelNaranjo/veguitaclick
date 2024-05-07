@@ -9,29 +9,29 @@ import { Repository } from 'typeorm';
 export class ClientService {
     constructor(
         @InjectRepository(Clients)
-        private ClientRepository: Repository<Clients>,
+        private clientRepository: Repository<Clients>,
     ) { }
 
     async create(createClientDto: CreateClientDto): Promise<Clients> {
-        const Client = this.ClientRepository.create(createClientDto);
-        return this.ClientRepository.save(Client);
+        const client = this.clientRepository.create(createClientDto);
+        return this.clientRepository.save(client);
     }
 
     async findAll(): Promise<Clients[]> {
-        return this.ClientRepository.find();
+        return this.clientRepository.find();
     }
 
     async findOne(id: number): Promise<Clients> {
-        return this.ClientRepository.findOneBy({ id: id });
+        return this.clientRepository.findOneBy({ id: id });
     }
 
     async update(id: number, updateClientDto: UpdateClientDto): Promise<Clients> {
-        const Client = await this.ClientRepository.findOneBy({ id: id });
-        return this.ClientRepository.save({ ...Client, ...updateClientDto });
+        const client = await this.clientRepository.findOneBy({ id: id });
+        return this.clientRepository.save({ ...client, ...updateClientDto });
     }
 
     async remove(id: number): Promise<void> {
-        const Client = await this.ClientRepository.findOneBy({ id: id });
-        await this.ClientRepository.remove(Client);
+        const client = await this.clientRepository.findOneBy({ id: id });
+        await this.clientRepository.remove(client);
     }
 }
