@@ -12,10 +12,10 @@ describe('DatabaseService', () => {
     service = module.get<DatabaseService>(DatabaseService);
   });
 
-  it('should return correct TypeOrmModuleOptions', () => {
-    const options = service.createTypeOrmOptions();
+  it('should return correct TypeOrmModuleOptions',async () => {
+    const options = await service.createTypeOrmOptions();
     expect(options).toEqual({
-      type: 'mysql',
+      type: 'postgres',
       host: process.env.DB_HOST,
       port: Number(process.env.DB_PORT),
       username: process.env.DB_USER,
