@@ -4,7 +4,7 @@ import { SeederService } from '../../services/seeder/seeder.service';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { Privileges } from '../../entities/privileges.entity';
 import { Roles } from '../../entities/roles.entity';
-import { Users } from '../../entities/users.entity';
+import { Users } from '../../entities/user.entity';
 
 describe('SeederController', () => {
   let controller: SeederController;

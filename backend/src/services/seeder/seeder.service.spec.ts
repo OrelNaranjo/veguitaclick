@@ -3,7 +3,7 @@ import { SeederService } from './seeder.service';
 import { Privileges } from '../../entities/privileges.entity';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { Roles } from '../../entities/roles.entity';
-import { Users } from '../../entities/users.entity';
+import { Users } from '../../entities/user.entity';
 
 describe('SeederService', () => {
   let service: SeederService;

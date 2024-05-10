@@ -6,7 +6,8 @@ export class SeederController {
   constructor(private readonly seederService: SeederService) {}
 
   @Post()
-  dataSeeder(): Promise<void> {
-    return this.seederService.dataSeeder();
+  async dataSeeder() {
+    const result = await this.seederService.dataSeeder();
+    return result;
   }
 }
