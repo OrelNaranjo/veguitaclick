@@ -2,10 +2,9 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { AuthService } from './auth.service';
 import { JwtService } from '@nestjs/jwt';
 import { UserService } from '../user/user.service';
-import { get } from 'https';
-import { Users } from '../../entities/user.entity';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { Roles } from '../../entities/roles.entity';
+import { User } from '../../entities/user.entity';
 
 describe('AuthService', () => {
   let service: AuthService;
@@ -24,7 +23,7 @@ describe('AuthService', () => {
           }
         },
         {
-          provide: getRepositoryToken(Users),
+          provide: getRepositoryToken(User),
           useValue: {
             find: jest.fn(() => []),
             findOne: jest.fn(() => []),

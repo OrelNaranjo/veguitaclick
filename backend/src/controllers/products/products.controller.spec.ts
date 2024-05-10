@@ -1,9 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { ProductsController } from './products.controller';
 import { ProductService } from '../../services/product/product.service';
-import { CreateProductDto } from '../../dtos/product/create-product.dto';
-import { Products } from '../../entities/products.entity';
-import { UpdateProductDto } from '../../dtos/product/update-product.dto';
+import { Product } from '../../entities/product.entity';
 
 describe('productsController', () => {
   let controller: ProductsController;
@@ -16,9 +14,9 @@ describe('productsController', () => {
         {
           provide: ProductService,
           useValue: {
-            create: jest.fn().mockResolvedValue(new Products()),
-            findAll: jest.fn().mockResolvedValue([new Products()]),
-            findOne: jest.fn().mockResolvedValue(new Products()),
+            create: jest.fn().mockResolvedValue(new Product()),
+            findAll: jest.fn().mockResolvedValue([new Product()]),
+            findOne: jest.fn().mockResolvedValue(new Product()),
             update: jest.fn().mockResolvedValue('El product ha sido actualizado exitosamente.'),
             remove: jest.fn().mockResolvedValue(undefined),
           },

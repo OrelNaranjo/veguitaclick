@@ -1,8 +1,8 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { PackageTypesController } from './package-types.controller';
-import { PackageTypeService } from '../../services/package-types/package-types.service';
 import { getRepositoryToken } from '@nestjs/typeorm';
-import { PackageTypes } from '../../entities/package-type.entity';
+import { PackageType } from '../../entities/package-type.entity';
+import { PackageTypesService } from '../../services/package-types/package-types.service';
 
 describe('PackageTypesController', () => {
   let controller: PackageTypesController;
@@ -10,9 +10,9 @@ describe('PackageTypesController', () => {
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [PackageTypesController],
-      providers: [PackageTypeService,
+      providers: [PackageTypesService,
         {
-          provide: getRepositoryToken(PackageTypes),
+          provide: getRepositoryToken(PackageType),
           useValue: {
             find: jest.fn(() => []),
             findOne: jest.fn(() => []),

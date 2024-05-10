@@ -1,8 +1,8 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { UserService } from './user.service';
 import { getRepositoryToken } from '@nestjs/typeorm';
-import { Users } from '../../entities/user.entity';
 import { Roles } from '../../entities/roles.entity';
+import { User } from '../../entities/user.entity';
 
 describe('UserService', () => {
   let service: UserService;
@@ -12,7 +12,7 @@ describe('UserService', () => {
       providers: [
         UserService,
         {
-          provide: getRepositoryToken(Users),
+          provide: getRepositoryToken(User),
           useValue: {
             find: jest.fn(() => []),
             findOne: jest.fn(() => []),

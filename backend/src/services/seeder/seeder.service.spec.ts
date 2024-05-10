@@ -3,7 +3,13 @@ import { SeederService } from './seeder.service';
 import { Privileges } from '../../entities/privileges.entity';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { Roles } from '../../entities/roles.entity';
-import { Users } from '../../entities/user.entity';
+import { User } from '../../entities/user.entity';
+import { Product } from '../../entities/product.entity';
+import { PackageType } from '../../entities/package-type.entity';
+import { Image } from '../../entities/image.entity';
+import { Category } from '../../entities/category.entity';
+import { Supplier } from '../../entities/supplier.entity';
+import { Employee } from '../../entities/employee.entity';
 
 describe('SeederService', () => {
   let service: SeederService;
@@ -32,7 +38,67 @@ describe('SeederService', () => {
           }
         },
         {
-          provide: getRepositoryToken(Users),
+          provide: getRepositoryToken(User),
+          useValue: {
+            find: jest.fn(() => []),
+            findOne: jest.fn(() => []),
+            create: jest.fn(() => []),
+            save: jest.fn(() => []),
+            remove: jest.fn(() => []),
+          }
+        },
+        {
+          provide: getRepositoryToken(Product),
+          useValue: {
+            find: jest.fn(() => []),
+            findOne: jest.fn(() => []),
+            create: jest.fn(() => []),
+            save: jest.fn(() => []),
+            remove: jest.fn(() => []),
+          }
+        },
+        {
+          provide: getRepositoryToken(PackageType),
+          useValue: {
+            find: jest.fn(() => []),
+            findOne: jest.fn(() => []),
+            create: jest.fn(() => []),
+            save: jest.fn(() => []),
+            remove: jest.fn(() => []),
+          }
+        },
+        {
+          provide: getRepositoryToken(Image),
+          useValue: {
+            find: jest.fn(() => []),
+            findOne: jest.fn(() => []),
+            create: jest.fn(() => []),
+            save: jest.fn(() => []),
+            remove: jest.fn(() => []),
+          }
+        },
+        {
+          provide: getRepositoryToken(Category),
+          useValue: {
+            find: jest.fn(() => []),
+            findOne: jest.fn(() => []),
+            create: jest.fn(() => []),
+            save: jest.fn(() => []),
+            remove: jest.fn(() => []),
+          }
+        },
+        {
+          provide: getRepositoryToken(Supplier),
+          useValue: {
+            find: jest.fn(() => []),
+            findOne: jest.fn(() => []),
+            create: jest.fn(() => []),
+            save: jest.fn(() => []),
+            remove: jest.fn(() => []),
+          }
+        },
+        {
+          provide: getRepositoryToken(Employee),
           useValue: {
             find: jest.fn(() => []),
             findOne: jest.fn(() => []),
