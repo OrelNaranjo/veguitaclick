@@ -2,7 +2,7 @@ import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/commo
 import { ApiTags, ApiResponse, ApiBody, ApiOkResponse, ApiParam } from '@nestjs/swagger';
 import { StoreService } from '../../services/store/store.service';
 import { CreateStoreDto } from '../../dtos/store/create-store-dto';
-import { Stores } from '../../entities/stores.entity';
+import { Store } from '../../entities/store.entity';
 import { UpdateStoreDto } from '../../dtos/store/update-store.dto';
 
 @Controller('stores')
@@ -14,20 +14,20 @@ export class StoresController {
     @Post()
     @ApiResponse({ status: 201, description: 'La tienda ha sido creada exitosamente. ' })
     @ApiBody({ type: CreateStoreDto })
-    create(@Body() createStoreDto: CreateStoreDto): Promise<Stores> {
+    create(@Body() createStoreDto: CreateStoreDto): Promise<Store> {
       return this.storeService.create(createStoreDto);
     }
 
     @Get()
     @ApiOkResponse({ description: 'Lista de todas las tiendas.' })
-    findAll(): Promise<Stores[]> {
+    findAll(): Promise<Store[]> {
       return this.storeService.findAll();
     }
 
     @Get(':id')
     @ApiOkResponse({ description: 'La tienda con el id especificado.' })
     @ApiParam({ name: 'id', description: 'ID de la tienda' })
-    findOne(@Param('id') id: string): Promise<Stores> {
+    findOne(@Param('id') id: string): Promise<Store> {
       return this.storeService.findOne(+id);
     }
 

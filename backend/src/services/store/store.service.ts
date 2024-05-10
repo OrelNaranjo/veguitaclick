@@ -1,31 +1,31 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Stores } from '../../entities/stores.entity';
 import { CreateStoreDto } from '../../dtos/store/create-store-dto';
 import { UpdateStoreDto } from '../../dtos/store/update-store.dto';
+import { Store } from '../../entities/store.entity';
 
 @Injectable()
 export class StoreService {
     constructor(
-        @InjectRepository(Stores)
-        private storeRepository: Repository<Stores>,
+        @InjectRepository(Store)
+        private storeRepository: Repository<Store>,
     ) { }
 
-    async create(createStoreDto: CreateStoreDto): Promise<Stores> {
+    async create(createStoreDto: CreateStoreDto): Promise<Store> {
         const store = this.storeRepository.create(createStoreDto);
         return this.storeRepository.save(store);
     }
 
-    findAll(): Promise<Stores[]> {
+    findAll(): Promise<Store[]> {
         return this.storeRepository.find();
     }
 
-    findOne(id: number): Promise<Stores> {
+    findOne(id: number): Promise<Store> {
         return this.storeRepository.findOneBy({ id: id });
     }
 
-    async update(id: number, updateStoreDto: UpdateStoreDto): Promise<Stores> {
+    async update(id: number, updateStoreDto: UpdateStoreDto): Promise<Store> {
         const store = await this.storeRepository.findOneBy({ id: id });
         return this.storeRepository.save({ ...store, ...updateStoreDto });
     }
