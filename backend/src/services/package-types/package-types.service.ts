@@ -1,31 +1,31 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { PackageTypes } from '../../entities/package-types.entity';
+import { PackageType } from '../../entities/package-type.entity';
 import { Repository } from 'typeorm';
 import { CreatePackageTypeDto } from '../../dtos/package-type/create-package-type.dto';
 import { UpdatePackageTypeDto } from '../../dtos/package-type/update-package-type.dto';
 
 @Injectable()
-export class PackageTypeService {
+export class PackageTypesService {
     constructor(
-        @InjectRepository(PackageTypes)
-        private packageTypeRepository: Repository<PackageTypes>,
+        @InjectRepository(PackageType)
+        private packageTypeRepository: Repository<PackageType>,
     ) { }
 
-    async create(createPackageTypeDto: CreatePackageTypeDto): Promise<PackageTypes> {
+    async create(createPackageTypeDto: CreatePackageTypeDto): Promise<PackageType> {
         const packageType = this.packageTypeRepository.create(createPackageTypeDto);
         return this.packageTypeRepository.save(packageType);
     }
 
-    async findAll(): Promise<PackageTypes[]> {
+    async findAll(): Promise<PackageType[]> {
         return this.packageTypeRepository.find();
     }
 
-    async findOne(id: number): Promise<PackageTypes> {
+    async findOne(id: number): Promise<PackageType> {
         return this.packageTypeRepository.findOneBy({ id: id });
     }
 
-    async update(id: number, updatePackageTypeDto: UpdatePackageTypeDto): Promise<PackageTypes> {
+    async update(id: number, updatePackageTypeDto: UpdatePackageTypeDto): Promise<PackageType> {
         const packageType = await this.packageTypeRepository.findOneBy({ id: id });
         return this.packageTypeRepository.save({ ...packageType, ...updatePackageTypeDto });
     }

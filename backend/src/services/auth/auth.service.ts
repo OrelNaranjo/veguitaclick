@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { UserService } from '../user/user.service';
 import * as bcrypt from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
-import { Users } from '../../entities/users.entity';
+import { User } from '../../entities/user.entity';
 
 @Injectable()
 export class AuthService {
@@ -19,7 +19,7 @@ export class AuthService {
     return null;
   }
 
-  async login(user: Users) {
+  async login(user: User) {
     const privileges = user.roles.flatMap(role => role.privileges);
     const payload = { username: user.username, sub: user.id, privileges };
     return {

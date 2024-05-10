@@ -1,15 +1,4 @@
-import { ApiPropertyOptional } from '@nestjs/swagger';
+import { PartialType } from '@nestjs/swagger';
+import { CreateCategoryDto } from './create-category.dto';
 
-export class UpdateCategoryDto {
-    @ApiPropertyOptional({ example: 'Category name', required: false })
-    readonly name?: string;
-
-    @ApiPropertyOptional({ example: 'Category description', required: false })
-    readonly description?: string;
-
-    @ApiPropertyOptional({ example: true, required: false })
-    readonly is_active?: boolean;
-
-    @ApiPropertyOptional({ example: 1, required: false })
-    readonly parentId?: number;
-}
+export class UpdateCategoryDto extends PartialType(CreateCategoryDto) {}

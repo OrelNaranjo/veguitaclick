@@ -3,7 +3,7 @@ import { AuthService } from './auth.service';
 import { JwtService } from '@nestjs/jwt';
 import { UserService } from '../user/user.service';
 import { get } from 'https';
-import { Users } from '../../entities/users.entity';
+import { Users } from '../../entities/user.entity';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { Roles } from '../../entities/roles.entity';
 

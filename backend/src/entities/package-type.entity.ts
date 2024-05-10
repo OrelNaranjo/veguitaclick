@@ -1,13 +1,16 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany, CreateDateColumn, UpdateDateColumn } from 'typeorm';
-import { Products } from './products.entity';
+import { Product } from './product.entity';
 
 @Entity()
-export class PackageTypes {
+export class PackageType {
     @PrimaryGeneratedColumn()
     id: number;
 
     @Column()
     name: string;
+
+    @Column()
+    description: string;
 
     @CreateDateColumn()
     created: Date;
@@ -15,7 +18,7 @@ export class PackageTypes {
     @UpdateDateColumn()
     modified: Date;
 
-    @OneToMany(() => Products, product => product.packageType)
-    products: Products[];
+    @OneToMany(() => Product, product => product.packageType)
+    products: Product[];
 
 }

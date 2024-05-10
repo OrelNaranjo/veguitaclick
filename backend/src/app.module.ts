@@ -16,6 +16,17 @@ import { SeederModule } from './modules/seeder.module';
 import { AppController } from './app.controller';
 import { AuthGuard } from './guards/auth/auth.guard';
 import { StoreModule } from './modules/store.module';
+import { WarehousesModule } from './modules/warehouses.module';
+import { InventoriesModule } from './modules/inventories.module';
+import { TicketsModule } from './modules/tickets.module';
+import { GuidesModule } from './modules/guides.module';
+import { VehiclesModule } from './modules/vehicles.module';
+import { EmployeesModule } from './modules/employees.module';
+import { PaymentsModule } from './modules/payments.module';
+import { PaymentMethodsModule } from './modules/payment-methods.module';
+import { PaymentDetailsModule } from './modules/payment-details.module';
+import { PurchaseOrdersModule } from './modules/purchase-orders.module';
+
 
 @Module({
   imports: [
@@ -34,6 +45,16 @@ import { StoreModule } from './modules/store.module';
     AuthModule,
     SeederModule,
     StoreModule,
+    WarehousesModule,
+    InventoriesModule,
+    TicketsModule,
+    GuidesModule,
+    VehiclesModule,
+    EmployeesModule,
+    PurchaseOrdersModule,
+    PaymentsModule,
+    PaymentMethodsModule,
+    PaymentDetailsModule,
   ],
   controllers: [AppController],
   providers: [AuthGuard],

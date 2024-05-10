@@ -2,7 +2,7 @@ import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/commo
 import { ApiBody, ApiOkResponse, ApiParam, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { CreateCategoryDto } from '../../dtos/category/create-category.dto';
 import { UpdateCategoryDto } from '../../dtos/category/update-category.dto';
-import { Categories } from '../../entities/categories.entity';
+import { Category } from '../../entities/category.entity';
 import { CategoryService } from '../../services/category/category.service';
 
 @Controller('categories')
@@ -13,20 +13,20 @@ export class CategoriesController {
     @Post()
     @ApiResponse({ status: 201, description: 'La categoría ha sido creada exitosamente.' })
     @ApiBody({ type: CreateCategoryDto })
-    create(@Body() createCategoryDto: CreateCategoryDto): Promise<Categories> {
+    create(@Body() createCategoryDto: CreateCategoryDto): Promise<Category> {
         return this.categoryService.create(createCategoryDto);
     }
 
     @Get()
     @ApiOkResponse({ description: 'Lista de todas las categorías.' })
-    findAll(): Promise<Categories[]> {
+    findAll(): Promise<Category[]> {
         return this.categoryService.findAll();
     }
 
     @Get(':id')
     @ApiOkResponse({ description: 'La categoría con el id especificado.' })
     @ApiParam({ name: 'id', description: 'ID de la categoría' })
-    findOne(@Param('id') id: string): Promise<Categories> {
+    findOne(@Param('id') id: string): Promise<Category> {
         return this.categoryService.findOne(+id);
     }
 

@@ -1,9 +1,9 @@
 import { Column, Entity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, OneToMany, JoinColumn, ManyToOne } from "typeorm";
-import { Products } from "./products.entity";
-import { Images } from "./images.entity";
+import { Product } from "./product.entity";
+import { Image } from "./image.entity";
 
 @Entity()
-export class Categories {
+export class Category {
 
     @PrimaryGeneratedColumn()
     id: number;
@@ -23,16 +23,16 @@ export class Categories {
     @UpdateDateColumn()
     modified: Date;
 
-    @OneToMany(() => Products, product => product.category)
-    products: Products[];
+    @OneToMany(() => Product, product => product.category)
+    products: Product[];
 
-    @OneToMany(() => Images, image => image.category)
-    images: Images[];
+    @OneToMany(() => Image, image => image.category)
+    image: Image[];
 
     @Column({ nullable: true })
     parentId: number;
 
-    @ManyToOne(() => Categories)
+    @ManyToOne(() => Category)
     @JoinColumn({ name: "parentId" })
-    parentCategory: Categories;
+    parentCategory: Category;
 }

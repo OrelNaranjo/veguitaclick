@@ -3,7 +3,7 @@ import { JwtModule, JwtService } from '@nestjs/jwt';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthController } from '../controllers/auth/auth.controller';
 import { Roles } from '../entities/roles.entity';
-import { Users } from '../entities/users.entity';
+import { User } from '../entities/user.entity';
 import { AuthService } from '../services/auth/auth.service';
 import { UserService } from '../services/user/user.service';
 
@@ -13,7 +13,7 @@ import { UserService } from '../services/user/user.service';
             secret: process.env.API_SECRET,
             signOptions: { expiresIn: '60m' },
       }),
-      TypeOrmModule.forFeature([Users, Roles]),
+      TypeOrmModule.forFeature([User, Roles]),
     ],
     controllers: [AuthController],
     providers: [AuthService, UserService],

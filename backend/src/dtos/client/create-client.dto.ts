@@ -6,14 +6,14 @@ export class CreateClientDto {
     @IsNotEmpty()
     @IsString()
     readonly rut: string;
-    
+
 
     @ApiProperty({example: 'cliente'})
     @IsNotEmpty()
     @IsString()
     readonly name: string;
 
-    @ApiProperty({example: 'direccion1'})
+    @ApiProperty({example: 'direccion 123'})
     @IsNotEmpty()
     @IsString()
     readonly address: string;

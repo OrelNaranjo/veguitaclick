@@ -2,30 +2,30 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { CreateCategoryDto } from '../../dtos/category/create-category.dto';
 import { UpdateCategoryDto } from '../../dtos/category/update-category.dto';
-import { Categories } from '../../entities/categories.entity';
+import { Category } from '../../entities/category.entity';
 import { Repository } from 'typeorm';
 
 @Injectable()
 export class CategoryService {
     constructor(
-        @InjectRepository(Categories)
-        private categoryRepository: Repository<Categories>,
+        @InjectRepository(Category)
+        private categoryRepository: Repository<Category>,
     ) { }
 
-    async create(createCategoryDto: CreateCategoryDto): Promise<Categories> {
+    async create(createCategoryDto: CreateCategoryDto): Promise<Category> {
         const category = this.categoryRepository.create(createCategoryDto);
         return this.categoryRepository.save(category);
     }
 
-    async findAll(): Promise<Categories[]> {
+    async findAll(): Promise<Category[]> {
         return this.categoryRepository.find();
     }
 
-    async findOne(id: number): Promise<Categories> {
+    async findOne(id: number): Promise<Category> {
         return this.categoryRepository.findOneBy({ id: id });
     }
 
-    async update(id: number, updateCategoryDto: UpdateCategoryDto): Promise<Categories> {
+    async update(id: number, updateCategoryDto: UpdateCategoryDto): Promise<Category> {
         const category = await this.categoryRepository.findOneBy({ id: id });
         return this.categoryRepository.save({ ...category, ...updateCategoryDto });
     }

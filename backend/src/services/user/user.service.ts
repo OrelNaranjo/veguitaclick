@@ -3,21 +3,21 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { In, Repository } from 'typeorm';
 import { CreateUserDto } from '../../dtos/user/create-user.dto';
 import { UpdateUserDto } from '../../dtos/user/update-user.dto';
-import { Users } from '../../entities/users.entity';
+import { User } from '../../entities/user.entity';
 import { Roles } from '../../entities/roles.entity';
 import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class UserService {
   constructor(
-    @InjectRepository(Users)
-    private userRepository: Repository<Users>,
+    @InjectRepository(User)
+    private userRepository: Repository<User>,
     @InjectRepository(Roles)
     private roleRepository: Repository<Roles>,
   ) { }
 
-  async create(user: CreateUserDto): Promise<Partial<Users>> {
-    const newUser = new Users();
+  async create(user: CreateUserDto): Promise<Partial<User>> {
+    const newUser = new User();
     newUser.username = user.username;
     newUser.email = user.email;
     newUser.password = bcrypt.hashSync(user.password, 10);
@@ -36,7 +36,7 @@ export class UserService {
     return this.userRepository.find({ select: ['id', 'username', 'email', 'roles'] });
   }
 
-  async findOneByUsername(username: string): Promise<Users> {
+  async findOneByUsername(username: string): Promise<User> {
     return this.userRepository.findOne({ where: { username }, relations: ['roles', 'roles.privileges'] });
   }
 

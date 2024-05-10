@@ -1,22 +1,22 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { ImageService } from './image.service';
-import { Images } from '../../entities/images.entity';
+import { ImagesService } from './images.service';
+import { Image } from '../../entities/image.entity';
 import { getRepositoryToken } from '@nestjs/typeorm';
 
 describe('ImageService', () => {
-  let service: ImageService;
+  let service: ImagesService;
   let repo: any;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [
-        ImageService,
+        ImagesService,
         {
-          provide: getRepositoryToken(Images),
+          provide: getRepositoryToken(Image),
           useValue: {
             find: jest.fn().mockResolvedValue([]),
-            findOneBy: jest.fn().mockResolvedValue(new Images()),
-            create: jest.fn().mockReturnValue(new Images()),
+            findOneBy: jest.fn().mockResolvedValue(new Image()),
+            create: jest.fn().mockReturnValue(new Image()),
             save: jest.fn(),
             remove: jest.fn(),
           },
@@ -24,8 +24,8 @@ describe('ImageService', () => {
       ],
     }).compile();
 
-    service = module.get<ImageService>(ImageService);
-    repo = module.get(getRepositoryToken(Images));
+    service = module.get<ImagesService>(ImagesService);
+    repo = module.get(getRepositoryToken(Image));
   });
 
   it('should be defined', () => {

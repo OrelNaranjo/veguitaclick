@@ -1,7 +1,7 @@
 import { Controller, Get, HttpCode, HttpException, HttpStatus, Post, UseGuards } from "@nestjs/common";
 import { GetUsername } from "./decorators/app.decorator";
 import { AuthGuard } from "./guards/auth/auth.guard";
-import { Users } from "./entities/users.entity";
+import { User } from "./entities/user.entity";
 
 
 @Controller('')
@@ -15,7 +15,7 @@ export class AppController {
     @UseGuards(AuthGuard)
     @Post()
     @HttpCode(200)
-    getStatus(@GetUsername() username: Users) {
+    getStatus(@GetUsername() username: User) {
         return {
             username: username,
             status: 'OK',

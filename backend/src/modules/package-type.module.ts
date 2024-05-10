@@ -1,12 +1,12 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { PackageTypes } from '../entities/package-types.entity';
+import { PackageType } from '../entities/package-type.entity';
 import { PackageTypesController } from '../controllers/package-types/package-types.controller';
-import { PackageTypeService } from '../services/package-type/package-type.service';
+import { PackageTypesService } from '../services/package-types/package-types.service';
 
 @Module({
-    imports: [TypeOrmModule.forFeature([PackageTypes])],
+    imports: [TypeOrmModule.forFeature([PackageType])],
     controllers: [PackageTypesController],
-    providers: [PackageTypeService],
+    providers: [PackageTypesService],
 })
 export class PackageTypeModule {}

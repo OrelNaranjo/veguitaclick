@@ -1,8 +1,8 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { PackageTypesController } from './package-types.controller';
-import { PackageTypeService } from '../../services/package-type/package-type.service';
+import { PackageTypeService } from '../../services/package-types/package-types.service';
 import { getRepositoryToken } from '@nestjs/typeorm';
-import { PackageTypes } from '../../entities/package-types.entity';
+import { PackageTypes } from '../../entities/package-type.entity';
 
 describe('PackageTypesController', () => {
   let controller: PackageTypesController;

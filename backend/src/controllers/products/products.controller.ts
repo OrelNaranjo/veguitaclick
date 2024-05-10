@@ -3,7 +3,7 @@ import { CreateProductDto } from '../../dtos/product/create-product.dto';
 import { UpdateProductDto } from '../../dtos/product/update-product.dto';
 import { ProductService } from '../../services/product/product.service';
 import { ApiTags, ApiResponse, ApiOkResponse, ApiBody, ApiParam } from '@nestjs/swagger';
-import { Products } from 'src/entities/products.entity';
+import { Product } from '../../entities/product.entity';
 
 @Controller('products')
 @ApiTags('Productos')
@@ -13,20 +13,20 @@ export class ProductsController {
   @Post()
   @ApiResponse({ status: 201, description: 'El product ha sido creado exitosamente.' })
   @ApiBody({ type: CreateProductDto })
-  create(@Body() createProductDto: CreateProductDto): Promise<Products> {
+  create(@Body() createProductDto: CreateProductDto): Promise<Product> {
     return this.productsService.create(createProductDto);
   }
 
   @Get()
   @ApiOkResponse({ description: 'Lista de todos los products.' })
-  findAll(): Promise<Products[]> {
+  findAll(): Promise<Product[]> {
     return this.productsService.findAll();
   }
 
   @Get(':id')
   @ApiOkResponse({ description: 'El product con el id especificado.' })
   @ApiParam({ name: 'id', description: 'ID del product' })
-  findOne(@Param('id') id: string): Promise<Products> {
+  findOne(@Param('id') id: string): Promise<Product> {
     return this.productsService.findOne(+id);
   }
 

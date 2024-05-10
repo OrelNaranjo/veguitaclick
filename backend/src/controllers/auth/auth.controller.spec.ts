@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { AuthController } from './auth.controller';
 import { AuthService } from '../../services/auth/auth.service';
 import { getRepositoryToken } from '@nestjs/typeorm';
-import { Users } from '../../entities/users.entity';
+import { User } from '../../entities/user.entity';
 import { UserService } from '../../services/user/user.service';
 import { AuthGuard } from '../../guards/auth/auth.guard';
 import { Roles } from '../../entities/roles.entity';
@@ -16,7 +16,7 @@ describe('AuthController', () => {
       controllers: [AuthController],
       providers: [AuthService, UserService,
         {
-          provide: getRepositoryToken(Users),
+          provide: getRepositoryToken(User),
           useValue: {
             find: jest.fn(() => []),
             findOne: jest.fn(() => []),

@@ -3,7 +3,7 @@ import { UsersController } from './users.controller';
 import { UserService } from '../../services/user/user.service';
 import { AuthGuard } from '../../guards/auth/auth.guard';
 import { Roles } from '../../entities/roles.entity';
-import { Users } from '../../entities/users.entity';
+import { User } from '../../entities/user.entity';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { JwtService } from '@nestjs/jwt';
 
@@ -34,7 +34,7 @@ describe('UsersController', () => {
           }
         },
         {
-          provide: getRepositoryToken(Users),
+          provide: getRepositoryToken(User),
           useValue: {
             find: jest.fn(() => []),
             findOne: jest.fn(() => []),

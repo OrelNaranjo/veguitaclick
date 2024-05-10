@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { PackageTypeService } from './package-type.service';
-import { PackageTypes } from '../../entities/package-types.entity';
+import { PackageTypeService } from './package-types.service';
+import { PackageTypes } from '../../entities/package-type.entity';
 import { getRepositoryToken } from '@nestjs/typeorm';
 
 describe('PackageTypeService', () => {

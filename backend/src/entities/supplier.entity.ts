@@ -1,8 +1,8 @@
 import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
-import { Products } from "./products.entity";
+import { Product } from "./product.entity";
 
 @Entity()
-export class Suppliers {
+export class Supplier {
 
     @PrimaryGeneratedColumn()
     id: number;
@@ -28,10 +28,6 @@ export class Suppliers {
     @UpdateDateColumn()
     modified: Date;
 
-    @OneToMany(()=> Products, product => product.supplier)
-    products: Products[];
-
-    
-
-
+    @OneToMany(()=> Product, product => product.supplier)
+    products: Product[];
 }
