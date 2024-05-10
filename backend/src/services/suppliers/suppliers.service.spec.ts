@@ -1,21 +1,21 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { SupplierService } from './supplier.service';
-import { Suppliers } from '../../entities/suppliers.entity';
+import { SuppliersService } from './suppliers.service';
+import { Supplier } from '../../entities/supplier.entity';
 import { getRepositoryToken } from '@nestjs/typeorm';
 
 describe('SupplierService', () => {
-  let service: SupplierService;
+  let service: SuppliersService;
   let repo: any;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [SupplierService, 
+      providers: [SuppliersService,
         {
-          provide: getRepositoryToken(Suppliers),
+          provide: getRepositoryToken(Supplier),
           useValue: {
             find: jest.fn().mockResolvedValue([]),
-            findOneBy: jest.fn().mockResolvedValue(new Suppliers()),
-            create: jest.fn().mockReturnValue(new Suppliers()),
+            findOneBy: jest.fn().mockResolvedValue(new Supplier()),
+            create: jest.fn().mockReturnValue(new Supplier()),
             save: jest.fn(),
             remove: jest.fn(),
           },
@@ -23,8 +23,8 @@ describe('SupplierService', () => {
       ],
     }).compile();
 
-    service = module.get<SupplierService>(SupplierService);
-    repo = module.get(getRepositoryToken(Suppliers));
+    service = module.get<SuppliersService>(SuppliersService);
+    repo = module.get(getRepositoryToken(Supplier));
   });
 
   it('should be defined', () => {

@@ -2,32 +2,32 @@ import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/commo
 import { ApiBody, ApiOkResponse, ApiParam, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { CreateSupplierDto } from '../../dtos/supplier/create-supplier.dto';
 import { UpdateSupplierDto } from '../../dtos/supplier/update-supplier.dto';
-import { Suppliers } from '../../entities/Suppliers.entity';
-import { SupplierService } from '../../services/supplier/supplier.service';
+import { Supplier } from '../../entities/supplier.entity';
+import { SuppliersService } from '../../services/suppliers/suppliers.service';
 
 
 @Controller('suppliers')
 @ApiTags('Proveedores')
 export class SuppliersController {
-    constructor(private readonly supplierService: SupplierService) {}
+    constructor(private readonly supplierService: SuppliersService) {}
 
   @Post()
   @ApiResponse({ status: 201, description: 'El proveedor ha sido creado exitosamente. ' })
   @ApiBody({ type: CreateSupplierDto })
-  create(@Body() createSupplierDto: CreateSupplierDto): Promise<Suppliers> {
+  create(@Body() createSupplierDto: CreateSupplierDto): Promise<Supplier> {
     return this.supplierService.create(createSupplierDto);
   }
 
   @Get()
   @ApiOkResponse({ description: 'Lista de todos los proveedores.' })
-  findAll(): Promise<Suppliers[]> {
+  findAll(): Promise<Supplier[]> {
     return this.supplierService.findAll();
   }
 
   @Get(':id')
   @ApiOkResponse({ description: 'El proveedor con el id especificado.' })
   @ApiParam({ name: 'id', description: 'ID del proveedor' })
-  findOne(@Param('id') id: string): Promise<Suppliers> {
+  findOne(@Param('id') id: string): Promise<Supplier> {
     return this.supplierService.findOne(+id);
   }
 

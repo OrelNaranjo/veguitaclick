@@ -2,30 +2,30 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { CreateSupplierDto } from '../../dtos/supplier/create-supplier.dto';
 import { UpdateSupplierDto } from '../../dtos/supplier/update-supplier.dto';
-import { Suppliers } from '../../entities/suppliers.entity';
+import { Supplier } from '../../entities/supplier.entity';
 import { Repository } from 'typeorm';
 
 @Injectable()
-export class SupplierService {
+export class SuppliersService {
     constructor(
-        @InjectRepository(Suppliers)
-        private SupplierRepository: Repository<Suppliers>,
+        @InjectRepository(Supplier)
+        private SupplierRepository: Repository<Supplier>,
     ) { }
 
-    async create(createSupplierDto: CreateSupplierDto): Promise<Suppliers> {
+    async create(createSupplierDto: CreateSupplierDto): Promise<Supplier> {
         const Supplier = this.SupplierRepository.create(createSupplierDto);
         return this.SupplierRepository.save(Supplier);
     }
 
-    async findAll(): Promise<Suppliers[]> {
+    async findAll(): Promise<Supplier[]> {
         return this.SupplierRepository.find();
     }
 
-    async findOne(id: number): Promise<Suppliers> {
+    async findOne(id: number): Promise<Supplier> {
         return this.SupplierRepository.findOneBy({ id: id });
     }
 
-    async update(id: number, updateSupplierDto: UpdateSupplierDto): Promise<Suppliers> {
+    async update(id: number, updateSupplierDto: UpdateSupplierDto): Promise<Supplier> {
         const Supplier = await this.SupplierRepository.findOneBy({ id: id });
         return this.SupplierRepository.save({ ...Supplier, ...updateSupplierDto });
     }
