@@ -1,9 +1,9 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { ProductService } from './product.service';
 import { getRepositoryToken } from '@nestjs/typeorm';
-import { Products } from '../../entities/products.entity';
 import { CreateProductDto } from '../../dtos/product/create-product.dto';
 import { UpdateProductDto } from '../../dtos/product/update-product.dto';
+import { Product } from '../../entities/product.entity';
 
 describe('productService', () => {
   let service: ProductService;
@@ -14,11 +14,11 @@ describe('productService', () => {
       providers: [
         ProductService,
         {
-          provide: getRepositoryToken(Products),
+          provide: getRepositoryToken(Product),
           useValue: {
             find: jest.fn().mockResolvedValue([]),
-            findOneBy: jest.fn().mockResolvedValue(new Products()),
-            create: jest.fn().mockReturnValue(new Products()),
+            findOneBy: jest.fn().mockResolvedValue(new Product()),
+            create: jest.fn().mockReturnValue(new Product()),
             save: jest.fn(),
             remove: jest.fn(),
           },
@@ -27,7 +27,7 @@ describe('productService', () => {
     }).compile();
 
     service = module.get<ProductService>(ProductService);
-    repo = module.get(getRepositoryToken(Products));
+    repo = module.get(getRepositoryToken(Product));
   });
 
   it('should be defined', () => {

@@ -1,22 +1,23 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { SuppliersController } from './suppliers.controller';
-import { SupplierService } from '../../services/suppliers/suppliers.service';
-import { Suppliers } from '../../entities/supplier.entity';
+import { SuppliersService } from '../../services/suppliers/suppliers.service';
+import { Supplier } from '../../entities/supplier.entity';
+
 
 describe('SuppliersController', () => {
   let controller: SuppliersController;
-  let service: SupplierService;
+  let service: SuppliersService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [SuppliersController],
       providers: [
         {
-          provide: SupplierService,
+          provide: SuppliersService,
           useValue: {
-            create: jest.fn().mockResolvedValue(new Suppliers()),
-            findAll: jest.fn().mockResolvedValue([new Suppliers()]),
-            findOne: jest.fn().mockResolvedValue(new Suppliers()),
+            create: jest.fn().mockResolvedValue(new Supplier()),
+            findAll: jest.fn().mockResolvedValue([new Supplier()]),
+            findOne: jest.fn().mockResolvedValue(new Supplier()),
             update: jest.fn().mockResolvedValue('El proveedor ha sido actualizado exitosamente.'),
             remove: jest.fn().mockResolvedValue(undefined),
           },
@@ -25,7 +26,7 @@ describe('SuppliersController', () => {
     }).compile();
 
     controller = module.get<SuppliersController>(SuppliersController);
-    service = module.get<SupplierService>(SupplierService);
+    service = module.get<SuppliersService>(SuppliersService);
   });
 
   it('should be defined', () => {

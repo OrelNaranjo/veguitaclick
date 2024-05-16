@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { CategoryService } from './category.service';
-import { Categories } from '../../entities/category.entity';
+import { Category } from '../../entities/category.entity';
 import { getRepositoryToken } from '@nestjs/typeorm';
 
 describe('CategoryService', () => {
@@ -11,11 +11,11 @@ describe('CategoryService', () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [CategoryService,
         {
-          provide: getRepositoryToken(Categories),
+          provide: getRepositoryToken(Category),
           useValue: {
             find: jest.fn().mockResolvedValue([]),
-            findOneBy: jest.fn().mockResolvedValue(new Categories()),
-            create: jest.fn().mockReturnValue(new Categories()),
+            findOneBy: jest.fn().mockResolvedValue(new Category()),
+            create: jest.fn().mockReturnValue(new Category()),
             save: jest.fn(),
             remove: jest.fn(),
           },
@@ -24,7 +24,7 @@ describe('CategoryService', () => {
     }).compile();
 
     service = module.get<CategoryService>(CategoryService);
-    repo = module.get(getRepositoryToken(Categories));
+    repo = module.get(getRepositoryToken(Category));
   });
 
   it('should be defined', () => {

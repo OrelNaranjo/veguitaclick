@@ -1,17 +1,17 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { ImagesController } from './images.controller';
-import { ImageService } from '../../services/images/images.service';
+import { ImagesService } from '../../services/images/images.service';
 
 describe('ImagesController', () => {
   let controller: ImagesController;
-  let service: ImageService;
+  let service: ImagesService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [ImagesController],
       providers: [
         {
-          provide: ImageService,
+          provide: ImagesService,
           useValue: {
             create: jest.fn().mockResolvedValue({}),
             findAll: jest.fn().mockResolvedValue([{}]),
@@ -24,7 +24,7 @@ describe('ImagesController', () => {
     }).compile();
 
     controller = module.get<ImagesController>(ImagesController);
-    service = module.get<ImageService>(ImageService);
+    service = module.get<ImagesService>(ImagesService);
   });
 
   it('should be defined', () => {
