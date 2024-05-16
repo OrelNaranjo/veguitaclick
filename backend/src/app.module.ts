@@ -26,6 +26,7 @@ import { PaymentsModule } from './modules/payments.module';
 import { PaymentMethodsModule } from './modules/payment-methods.module';
 import { PaymentDetailsModule } from './modules/payment-details.module';
 import { PurchaseOrdersModule } from './modules/purchase-orders.module';
+import { ProcessesModule } from './modules/processes.module';
 
 
 @Module({
@@ -55,6 +56,7 @@ import { PurchaseOrdersModule } from './modules/purchase-orders.module';
     PaymentsModule,
     PaymentMethodsModule,
     PaymentDetailsModule,
+    ProcessesModule,
   ],
   controllers: [AppController],
   providers: [AuthGuard],
