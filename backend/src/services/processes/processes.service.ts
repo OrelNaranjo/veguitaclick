@@ -1,26 +1,37 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
 import { CreateProcessDto } from '../../dtos/process/create-process.dto';
 import { UpdateProcessDto } from '../../dtos/process/update-process.dto';
+import { Process } from '../../entities/process.entity';
+import { Repository } from 'typeorm';
 
 @Injectable()
 export class ProcessesService {
-  create(createProcessDto: CreateProcessDto) {
-    return 'This action adds a new process';
-  }
+    constructor(
+        @InjectRepository(Process)
+        private processRepository: Repository<Process>,
+    ) { }
 
-  findAll() {
-    return `This action returns all processes`;
-  }
+    async create(createProcessDto: CreateProcessDto): Promise<Process> {
+        const process = this.processRepository.create(createProcessDto);
+        return this.processRepository.save(process);
+    }
 
-  findOne(id: number) {
-    return `This action returns a #${id} process`;
-  }
+    async findAll(): Promise<Process[]> {
+        return this.processRepository.find();
+    }
 
-  update(id: number, updateProcessDto: UpdateProcessDto) {
-    return `This action updates a #${id} process`;
-  }
+    async findOne(id: number): Promise<Process> {
+        return this.processRepository.findOneBy({ id: id });
+    }
 
-  remove(id: number) {
-    return `This action removes a #${id} process`;
-  }
+    async update(id: number, updateProcessDto: UpdateProcessDto): Promise<Process> {
+        const process = await this.processRepository.findOneBy({ id: id });
+        return this.processRepository.save({ ...process, ...updateProcessDto });
+    }
+
+    async remove(id: number): Promise<void> {
+        const process = await this.processRepository.findOneBy({ id: id });
+        await this.processRepository.remove(process);
+    }
 }
